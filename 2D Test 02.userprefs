@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SensorInput_Microphone.cs">
+    <Files>
+      <File FileName="..\..\Tutorials\Lautstaerke Test\Assets\MicInput.cs" Line="20" Column="28" />
+      <File FileName="Assets\Scripts\SensorInput_Microphone.cs" Line="68" Column="35" />
+      <File FileName="Assets\Scripts\BucketFactory.cs" Line="49" Column="45" />
+      <File FileName="Assets\Scripts\SensorInput_GravityAccelerometer.cs" Line="78" Column="3" />
+      <File FileName="Assets\Scripts\GlobalVariablesSingleton.cs" Line="62" Column="12" />
+      <File FileName="Assets\Scripts\UIBehaviour.cs" Line="33" Column="35" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
