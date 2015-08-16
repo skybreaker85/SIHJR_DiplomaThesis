@@ -214,9 +214,9 @@ public class BucketBehaviour : MonoBehaviour {
 
 	public void OnDestroy() {
 		//Debug.Log("Element was destroyed");
-		//_debugText.text = "destroyed at " + this.transform.position.x;
-		//_debugText.text = "destroyed at " + this.transform.GetComponent<Rigidbody2D>().velocity;
-		_debugText.text = "destroyed at " + this.transform.position.x + "\n__ with: " + GetComponent<Rigidbody2D>().velocity;
+		//_gpsText.text = "destroyed at " + this.transform.position.x;
+		//_gpsText.text = "destroyed at " + this.transform.GetComponent<Rigidbody2D>().velocity;
+		//THIS WAS USED: //_gpsText.text = "destroyed at " + this.transform.position.x + "\n__ with: " + GetComponent<Rigidbody2D>().velocity;
 	}
 
 

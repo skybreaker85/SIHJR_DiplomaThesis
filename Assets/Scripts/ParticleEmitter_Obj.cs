@@ -8,7 +8,7 @@ public class ParticleEmitter_Obj : MonoBehaviour {
 	
 	private GameObject _tempParticle;
 	
-	private AudioSource _waterDropSound;
+	//private AudioSource _waterDropSound;
 	
 	public float speed = 0.1F;
 	public float _spawnRate = 0.1F;
@@ -47,7 +47,7 @@ public class ParticleEmitter_Obj : MonoBehaviour {
 		}
 		*/
 		
-		_waterDropSound = GetComponent<AudioSource>();
+		//_waterDropSound = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame

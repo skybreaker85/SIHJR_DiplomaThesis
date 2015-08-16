@@ -1,11 +1,12 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{C26DF34D-94FB-0823-AD9C-5A69216269E9}") = "2D Test 02", "Assembly-CSharp-firstpass.csproj", "{57BE2651-15EA-14BB-62CF-8586D4507B20}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{E3B63596-D406-B74C-1777-C7C35B722F97}"
 EndProject
-Project("{C26DF34D-94FB-0823-AD9C-5A69216269E9}") = "2D Test 02", "Assembly-CSharp.csproj", "{AA01A368-B8B0-6CB4-364D-C0CED64DAB0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{9528C4A6-DFD6-BC63-A0ED-6255ED1C3331}"
 EndProject
-Project("{C26DF34D-94FB-0823-AD9C-5A69216269E9}") = "2D Test 02", "Assembly-CSharp-Editor.csproj", "{8E2538F9-D02F-3420-956C-19EBAE21D2E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{CEE68B35-C91A-44BF-E845-6F4FC6ED7944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,33 +14,32 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{57BE2651-15EA-14BB-62CF-8586D4507B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57BE2651-15EA-14BB-62CF-8586D4507B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57BE2651-15EA-14BB-62CF-8586D4507B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57BE2651-15EA-14BB-62CF-8586D4507B20}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA01A368-B8B0-6CB4-364D-C0CED64DAB0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA01A368-B8B0-6CB4-364D-C0CED64DAB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA01A368-B8B0-6CB4-364D-C0CED64DAB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA01A368-B8B0-6CB4-364D-C0CED64DAB0F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E2538F9-D02F-3420-956C-19EBAE21D2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E2538F9-D02F-3420-956C-19EBAE21D2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E2538F9-D02F-3420-956C-19EBAE21D2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E2538F9-D02F-3420-956C-19EBAE21D2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B63596-D406-B74C-1777-C7C35B722F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B63596-D406-B74C-1777-C7C35B722F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B63596-D406-B74C-1777-C7C35B722F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B63596-D406-B74C-1777-C7C35B722F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9528C4A6-DFD6-BC63-A0ED-6255ED1C3331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9528C4A6-DFD6-BC63-A0ED-6255ED1C3331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9528C4A6-DFD6-BC63-A0ED-6255ED1C3331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9528C4A6-DFD6-BC63-A0ED-6255ED1C3331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE68B35-C91A-44BF-E845-6F4FC6ED7944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE68B35-C91A-44BF-E845-6F4FC6ED7944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE68B35-C91A-44BF-E845-6F4FC6ED7944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE68B35-C91A-44BF-E845-6F4FC6ED7944}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																		GlobalSection(MonoDevelopProperties) = preSolution
+	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
-		$0.TextStylePolicy = $1
+		$0.TextStylePolicy = $3
 		$1.inheritsSet = null
 		$1.scope = text/x-csharp
 		$0.CSharpFormattingPolicy = $2
 		$2.inheritsSet = Mono
 		$2.inheritsScope = text/x-csharp
 		$2.scope = text/x-csharp
-		$0.TextStylePolicy = $3
 		$3.FileWidth = 120
 		$3.TabWidth = 4
 		$3.IndentWidth = 4
@@ -48,5 +48,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal
