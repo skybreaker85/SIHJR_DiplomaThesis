@@ -56,9 +56,9 @@ public class SensorInput_Camera : MonoBehaviour {
 			if (_webCamTexture == null) {
 				initializeWebCamTexture();
 			}
-			
-			//GlobalVariablesSingleton.instance.color = _webCamTexture.GetPixel (160, 120);
-			GlobalVariablesSingleton.instance.color = Color.white;
+
+			//GlobalVariablesSingleton.instance.webcamColor = _webCamTexture.GetPixel (160, 120);
+			ColorController.instance.webcamColor = Color.white;
 			//_colorR = (Color.white.r + Color.blue.r + Color.red.r) / 3;
 			//_colorG = (Color.white.g + Color.blue.g + Color.red.g) / 3;
 			//_colorB = (Color.white.b + Color.blue.b + Color.red.b) / 3;
@@ -95,7 +95,7 @@ public class SensorInput_Camera : MonoBehaviour {
 			//_colorR = _webCamTexture.GetPixel (160, 120).r;
 			//_colorG = _webCamTexture.GetPixel (160, 120).g;
 			//_colorB = _webCamTexture.GetPixel (160, 120).b;
-			GlobalVariablesSingleton.instance.color = new Color (_colorR, _colorG, _colorB);
+			ColorController.instance.webcamColor = new Color (_colorR, _colorG, _colorB);
 		}
 	}
 

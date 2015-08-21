@@ -34,7 +34,7 @@ public class BucketFactory : MonoBehaviour {
 	void Update () {
 		if (_timeLeft <= 0f) {
 
-			_threshholdCount -= _micScriptReference.GetVolume();	//TODO: check comments on sensorinput_micorphone script -> return value of getVolume()
+			_threshholdCount -= Mathf.Min(0.15f, _micScriptReference.GetVolume());	//TODO: correct max value? (first param): check comments on sensorinput_micorphone script -> return value of getVolume()
 
 			//set count to globalvarinstance, to see the value (and later create a gauge out of it)
 			GlobalVariablesSingleton.instance.bucketThreshholdCount = _threshholdCount;
@@ -60,15 +60,27 @@ public class BucketFactory : MonoBehaviour {
 		_tempBucket = Instantiate (_bucketObject, new Vector3 (transform.position.x, transform.position.y, 0), Quaternion.identity) as GameObject;
 		//set layer to parent and child sprite
 		_tempBucket.transform.gameObject.layer = 9;
-		_tempBucket.transform.GetChild (0).gameObject.layer = 9;
-		_tempBucket.transform.GetChild (1).gameObject.layer = 9;
-		_tempBucket.transform.GetChild (2).gameObject.layer = 9;
-	
+		for (int i = 0; i < _tempBucket.transform.childCount; i++)
+		{
+			//_tempBucket.transform.GetChild(0).gameObject.layer = 9;
+			//_tempBucket.transform.GetChild(1).gameObject.layer = 9;
+			//_tempBucket.transform.GetChild(2).gameObject.layer = 9;
+			//_tempBucket.transform.GetChild(3).gameObject.layer = 9;
+			_tempBucket.transform.GetChild(i).gameObject.layer = 9;
+		}
+
 		//color target color
 		//Debug.Log ("child 0 name: " + _tempBucket.transform.GetChild(0).name + "\nchild 1 name: " + _tempBucket.transform.GetChild(1).name + "\n");
-	
-		BucketBehaviour scriptReference = (BucketBehaviour)_tempBucket.GetComponent (typeof(BucketBehaviour));	//TODO: the following things can be done by bucket himself -> remove getcomponent call (performance issue)
-		scriptReference.setTargetColor (GlobalVariablesSingleton.instance.getRandomColor ());
+
+		BucketBehaviour scriptReference = (BucketBehaviour)_tempBucket.GetComponent (typeof(BucketBehaviour));  //TODO: the following things can be done by bucket himself -> remove getcomponent call (performance issue)
+		Color col = ColorController.instance.getRandomColor();
+		Color colSeason = ColorController.instance.getInfluencedColor(col);
+		Color colSun = ColorController.instance.daylightInfluencedColor(col);
+		Color colSeasoSun = ColorController.instance.daylightInfluencedColor(colSeason);
+        scriptReference.setTargetColor (col);
+		scriptReference.setTargetColorAlteredSeason (colSeason);
+		scriptReference.setTargetColorAlteredSun (colSun);
+		scriptReference.setTargetColorAlteredSeasonSun (colSeasoSun);
 		//scriptReference.setTargetColor(Color.black);
 		scriptReference.speed = _speedForBuckets;
 		scriptReference._debugText = _debugText;

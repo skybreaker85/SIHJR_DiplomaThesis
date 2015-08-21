@@ -11,7 +11,7 @@ public class ParticleEmitter_Obj : MonoBehaviour {
 	//private AudioSource _waterDropSound;
 	
 	public float speed = 0.1F;
-	public float _spawnRate = 0.1F;
+	//public float _spawnRate = 0.1F;
 	private float _spawnTime;
 	public float _forceMaxRandom = 2f;
 
@@ -52,63 +52,71 @@ public class ParticleEmitter_Obj : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//count the time
-		_spawnTime += Time.deltaTime;
-		
-		//Debug.Log("Time: " + Time.time);
-		if (_spawnTime > _spawnRate) {
-			//yes -> new particle + set time lower
-			_spawnTime -= _spawnRate;
-			
-			
-			//create new particle
-			//TODO: check for performance (child 1 maybe later not needed
-			
-			//Debug.Log("Time Mod 2: " + Time.time);
-			_tempParticle = Instantiate(_particle, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation) as GameObject;
-			//Debug.Log ("child: " + _tempParticle.transform.GetChild(0).name);
-			_tempParticle.transform.GetChild(0).GetComponent<SpriteRenderer>().color = GlobalVariablesSingleton.instance.color;
-			if (_tempParticle.transform.childCount > 1) {
-				_tempParticle.transform.GetChild(1).GetComponent<MeshRenderer>().material.SetColor("_Color", GlobalVariablesSingleton.instance.color);
-			}
-			//_tempParticle.transform.GetChild(1).GetComponent<MeshRenderer>().material.SetColor("_Emission", Color.red);
+		if (GlobalVariablesSingleton.instance.isWaterTapOpen)
+		{
+			//count the time
+			_spawnTime += Time.deltaTime;
 
-			//set layer to parent and child sprite
-			//_tempParticle.gameObject.layer = 1;//LayerMask.NameToLayer("Particles");	//ParticleLayer
-			_tempParticle.transform.gameObject.layer = 10;
-			_tempParticle.transform.GetChild(0).gameObject.layer = 10;
-			if (_tempParticle.transform.childCount > 1) {
+			//Debug.Log("Time: " + Time.time);
+			if (_spawnTime > GlobalVariablesSingleton.instance.particleSpawnRate)
+			{
+				//yes -> new particle + set time lower
+				_spawnTime -= GlobalVariablesSingleton.instance.particleSpawnRate;
+
+
+				//create new particle
+				//TODO: check for performance (child 1 maybe later not needed
+
+				//Debug.Log("Time Mod 2: " + Time.time);
+				_tempParticle = Instantiate(_particle, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation) as GameObject;
+				//Debug.Log ("child: " + _tempParticle.transform.GetChild(0).name);
+				_tempParticle.transform.GetChild(0).GetComponent<SpriteRenderer>().color = ColorController.instance.webcamColor;
+				if (_tempParticle.transform.childCount > 1)
+				{
+					_tempParticle.transform.GetChild(1).GetComponent<MeshRenderer>().material.SetColor("_Color", ColorController.instance.webcamColor);
+				}
+				//_tempParticle.transform.GetChild(1).GetComponent<MeshRenderer>().material.SetColor("_Emission", Color.red);
+
+				//set layer to parent and child sprite
+				//_tempParticle.gameObject.layer = 1;//LayerMask.NameToLayer("Particles");	//ParticleLayer
+				_tempParticle.transform.gameObject.layer = 10;
 				_tempParticle.transform.GetChild(0).gameObject.layer = 10;
+				if (_tempParticle.transform.childCount > 1)
+				{
+					_tempParticle.transform.GetChild(0).gameObject.layer = 10;
+				}
+				//show or hide particle
+				_tempParticle.transform.GetChild(0).gameObject.SetActive(_showParticle);
+				if (_tempParticle.transform.childCount > 1)
+				{
+					_tempParticle.transform.GetChild(1).gameObject.SetActive(!_showParticle);
+				}
+
+
+				//initialize so that particles prevent collision with foerderband (but still are pushed away)
+				//Physics2D.IgnoreCollision (_foerderbandCollider, _tempParticle.GetComponents<Collider2D>()[0]);	//TODO: check if [0] is the correct collider
+
+
+				//Debug.Log("pos X: " + transform.position.x);
+				//Debug.Log("pos Y: " + transform.position.y);
+				//_tempParticle.transform.position.Set(transform.position.x, transform.position.y, 0);
+				//_tempParticle.GetComponent<Rigidbody2D>().position = new Vector2 (transform.position.x, transform.position.y);
+
+
+
+				//Debug.Log ("Constr. : " + _tempParticle.GetComponent<Rigidbody2D>().constraints);
+				if (_tempParticle.GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.FreezePosition)
+				{
+					_tempParticle.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+				}
+				_tempParticle.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-_forceMaxRandom, _forceMaxRandom), -10));
+
+				//play sound effect
+				//_waterDropSound.pitch = -3;
+				//_waterDropSound.Play();
+				//_waterDropSound.Play(44100);
+
 			}
-			//show or hide particle
-			_tempParticle.transform.GetChild(0).gameObject.SetActive (_showParticle);
-			if (_tempParticle.transform.childCount > 1) {
-				_tempParticle.transform.GetChild(1).gameObject.SetActive (!_showParticle);
-			}
-
-
-			//initialize so that particles prevent collision with foerderband (but still are pushed away)
-			//Physics2D.IgnoreCollision (_foerderbandCollider, _tempParticle.GetComponents<Collider2D>()[0]);	//TODO: check if [0] is the correct collider
-
-
-			//Debug.Log("pos X: " + transform.position.x);
-			//Debug.Log("pos Y: " + transform.position.y);
-			//_tempParticle.transform.position.Set(transform.position.x, transform.position.y, 0);
-			//_tempParticle.GetComponent<Rigidbody2D>().position = new Vector2 (transform.position.x, transform.position.y);
-			
-			
-			
-			//Debug.Log ("Constr. : " + _tempParticle.GetComponent<Rigidbody2D>().constraints);
-			if (_tempParticle.GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.FreezePosition) {
-				_tempParticle.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-			}
-			_tempParticle.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-_forceMaxRandom,_forceMaxRandom), -10));
-
-			//play sound effect
-			//_waterDropSound.pitch = -3;
-			//_waterDropSound.Play();
-			//_waterDropSound.Play(44100);
-
 		}
 		
 		
@@ -160,12 +168,22 @@ public class ParticleEmitter_Obj : MonoBehaviour {
 
 	// BUTTON BEHAVIOURS		##########################################################################
 	public void Button_setSpawnRate(float addValue) {
-		if (_spawnRate > 0.5f) {
+		if (GlobalVariablesSingleton.instance.particleSpawnRate >= 0.5f) {
+			GlobalVariablesSingleton.instance.particleSpawnRate = 0.05f;
+		} else {
+			GlobalVariablesSingleton.instance.particleSpawnRate += addValue;
+		}
+		//GlobalVariablesSingleton.instance.particleSpawnRate = _spawnRate;
+	}
+	public void Button_toggleWaterTap()
+	{
+		GlobalVariablesSingleton.instance.isWaterTapOpen = !GlobalVariablesSingleton.instance.isWaterTapOpen;
+		/*if (_showParticle ) {
 			_spawnRate = 0.05f;
 		} else {
 			_spawnRate += addValue;
 		}
-		GlobalVariablesSingleton.instance.particleSpawnRate = _spawnRate;
+		*/
 	}
 
 	public void Button_toggleParticleShow() {

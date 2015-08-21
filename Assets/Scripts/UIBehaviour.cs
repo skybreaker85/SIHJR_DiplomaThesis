@@ -8,9 +8,11 @@ public class UIBehaviour : MonoBehaviour {
 	public Text _accelerometerText;
 	public Text _cameraText;
 	public Text _particleRateText;
+	public Text _dateTimeText;
 	public Text _fpsText;
 	public Text _bucketText;
 	public Text _debugText;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +33,7 @@ public class UIBehaviour : MonoBehaviour {
 		_particleRateText.text = GlobalVariablesSingleton.instance.particleSpawnRate + "=";
 		_fpsText.text = "FPS: " + (1 / Time.deltaTime);
 		_bucketText.text = "Bucket: " + GlobalVariablesSingleton.instance.bucketThreshholdCount;
+		_dateTimeText.text = "Jetzt: " + GlobalVariablesSingleton.instance.Now;
 	}
 
 	

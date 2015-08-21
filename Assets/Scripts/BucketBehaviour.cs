@@ -212,6 +212,63 @@ public class BucketBehaviour : MonoBehaviour {
 		*/
 	}
 
+	public void setTargetColorAlteredSeason(Color targetColor)
+	{
+		_targetColor = targetColor;
+		GameObject ch = getChild("targetColorSpriteAlteredSeason");
+		if (ch != null)
+		{
+			ch.GetComponent<SpriteRenderer>().color = _targetColor;
+		}
+
+		/*
+		for (int i = 0; i < transform.childCount; i++) {
+			Debug.Log("child name: " + transform.GetChild(i).name);
+			if (transform.GetChild(i).name == "targetColorSprite") {
+				transform.GetChild(i).gameObject.GetComponent<SpriteRenderer> ().color = _targetColor;
+			}
+		}
+		*/
+	}
+
+	public void setTargetColorAlteredSun(Color targetColor)
+	{
+		_targetColor = targetColor;
+		GameObject ch = getChild("targetColorSpriteAlteredSun");
+		if (ch != null)
+		{
+			ch.GetComponent<SpriteRenderer>().color = _targetColor;
+		}
+
+		/*
+		for (int i = 0; i < transform.childCount; i++) {
+			Debug.Log("child name: " + transform.GetChild(i).name);
+			if (transform.GetChild(i).name == "targetColorSprite") {
+				transform.GetChild(i).gameObject.GetComponent<SpriteRenderer> ().color = _targetColor;
+			}
+		}
+		*/
+	}
+
+	public void setTargetColorAlteredSeasonSun(Color targetColor)
+	{
+		_targetColor = targetColor;
+		GameObject ch = getChild("targetColorSpriteAlteredSeasonSun");
+		if (ch != null)
+		{
+			ch.GetComponent<SpriteRenderer>().color = _targetColor;
+		}
+
+		/*
+		for (int i = 0; i < transform.childCount; i++) {
+			Debug.Log("child name: " + transform.GetChild(i).name);
+			if (transform.GetChild(i).name == "targetColorSprite") {
+				transform.GetChild(i).gameObject.GetComponent<SpriteRenderer> ().color = _targetColor;
+			}
+		}
+		*/
+	}
+
 	public void OnDestroy() {
 		//Debug.Log("Element was destroyed");
 		//_gpsText.text = "destroyed at " + this.transform.position.x;

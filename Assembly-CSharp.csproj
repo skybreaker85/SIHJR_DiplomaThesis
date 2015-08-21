@@ -48,7 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BucketBehaviour.cs" />
      <Compile Include="Assets\Scripts\BucketFactory.cs" />
+     <Compile Include="Assets\Scripts\ColorController.cs" />
      <Compile Include="Assets\Scripts\GlobalVariablesSingleton.cs" />
+     <Compile Include="Assets\Scripts\OtherAuthors\CalcSunTimes.cs" />
+     <Compile Include="Assets\Scripts\PanelBehaviour.cs" />
      <Compile Include="Assets\Scripts\ParticleBehaviour.cs" />
      <Compile Include="Assets\Scripts\ParticleEmitter_Obj.cs" />
      <Compile Include="Assets\Scripts\ParticleRemover.cs" />
@@ -56,6 +59,7 @@
      <Compile Include="Assets\Scripts\SensorInput_GPS_Water.cs" />
      <Compile Include="Assets\Scripts\SensorInput_GravityAccelerometer.cs" />
      <Compile Include="Assets\Scripts\SensorInput_Microphone.cs" />
+     <Compile Include="Assets\Scripts\SensorInput_Time.cs" />
      <Compile Include="Assets\Scripts\UIBehaviour.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
